@@ -19,18 +19,27 @@ class SettingsRequestItem extends AbstractRequestItem
      * @var integer
      */
     private $projectId;
+
     /**
      * @var string
      */
     private $paymentMethod;
+
     /**
      * @var string
      */
     private $successUrl;
+
     /**
      * @var string
      */
     private $failUrl;
+
+    /**
+     * @var string
+     */
+    private $backUrl;
+
     /**
      * @var string
      */
@@ -94,6 +103,7 @@ class SettingsRequestItem extends AbstractRequestItem
             'payment_method' => new PaymentType($this),
             'success_url' => self::TYPE_STRING,
             'fail_url' => self::TYPE_STRING,
+            'back_url' => self::TYPE_STRING,
             'expire_date' => self::TYPE_DATE,
             'wallet_id' => self::TYPE_INTEGER,
             'is_test' => self::TYPE_BOOLEAN,
@@ -183,6 +193,26 @@ class SettingsRequestItem extends AbstractRequestItem
     public function setFailUrl($failUrl)
     {
         $this->failUrl = $failUrl;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBackUrl()
+    {
+        return $this->backUrl;
+    }
+
+    /**
+     * @param string $backUrl
+     *
+     * @return SettingsRequestItem
+     */
+    public function setBackUrl($backUrl)
+    {
+        $this->backUrl = $backUrl;
 
         return $this;
     }

@@ -44,6 +44,7 @@ class CreatePaymentSerializer extends AbstractRequestSerializer
             'payment_method' => $settings->getPaymentMethod(),
             'success_url' => $settings->getSuccessUrl(),
             'fail_url' => $settings->getFailUrl(),
+            'back_url' => $settings->getBackUrl(),
             'locale' => $settings->getLocale(),
             'expire_date' => $settings->getExpireDate() ? $settings->getExpireDate()->format('c') : null,
             'wallet_id' => $settings->getWalletId(),

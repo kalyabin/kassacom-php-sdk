@@ -41,6 +41,7 @@ class CreatePaymentSerializerTest extends TestCase
         $this->assertEquals($serializedData['settings']['payment_method'], $payment->getSettings()->getPaymentMethod());
         $this->assertEquals($serializedData['settings']['success_url'], $payment->getSettings()->getSuccessUrl());
         $this->assertEquals($serializedData['settings']['fail_url'], $payment->getSettings()->getFailUrl());
+        $this->assertEquals($serializedData['settings']['back_url'], $payment->getSettings()->getBackUrl());
         $this->assertEquals($serializedData['settings']['locale'], $payment->getSettings()->getLocale());
         $this->assertEquals($serializedData['settings']['expire_date'], self::TYPICAL_DATE);
         $this->assertEquals($serializedData['settings']['wallet_id'], $payment->getSettings()->getWalletId());
@@ -230,6 +231,7 @@ class CreatePaymentSerializerTest extends TestCase
             ->setExpireDate(new \DateTime(self::TYPICAL_DATE))
             ->setFailUrl('http://site.site/?failCallback')
             ->setSuccessUrl('http://site.site/?successCallback')
+            ->setBackUrl('http://site.site/?backUrl')
             ->setLocale('ru')
             ->setPaymentMethod(PaymentMethods::PAYMENT_METHOD_CARD)
             ->setProjectId(1)
